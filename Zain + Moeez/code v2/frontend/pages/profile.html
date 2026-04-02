@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Four Wheels</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="animated-grid"></div>
+    
+    <nav class="navbar glass">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-car"></i>
+                <span>Four Wheels</span>
+            </div>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="vehicles.html">Vehicles</a>
+                <a href="add-listing.html" id="addListingNav" style="display: none;">Add Listing</a>
+                <a href="my-listings.html" id="myListingsNav" style="display: none;">My Listings</a>
+                <a href="profile.html" class="active">Profile</a>
+                <a href="login.html" id="authBtn">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="profile-container">
+            <div id="profileContent">
+                <div class="loading-spinner">
+                    <div class="spinner"></div>
+                    <p>Loading profile...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3><i class="fas fa-car"></i> Four Wheels</h3>
+                <p>Your trusted vehicle marketplace.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="vehicles.html">Browse Vehicles</a>
+                <a href="add-listing.html">Sell Vehicle</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Four Wheels. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/profile.js"></script>
+</body>
+</html>

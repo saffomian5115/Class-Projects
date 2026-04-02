@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Messages — Four Wheels</title>
+  <link rel="stylesheet" href="../css/global.css"/>
+  <link rel="stylesheet" href="../css/navbar.css"/>
+  <link rel="stylesheet" href="../css/footer.css"/>
+  <link rel="stylesheet" href="../css/components.css"/>
+  <link rel="stylesheet" href="../css/messages.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="bg-scanlines"></div>
+  <div class="bg-glow-orb orb1"></div>
+  <div class="bg-glow-orb orb2"></div>
+  <canvas id="particles-canvas"></canvas>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-logo">
+        <span class="logo-icon">⬡</span>
+        <span class="logo-text">FOUR<span class="logo-accent">WHEELS</span></span>
+        <span class="logo-tag">v2.0</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../index.html" class="nav-link">HOME</a></li>
+        <li><a href="vehicles.html" class="nav-link">VEHICLES</a></li>
+        <li><a href="sell.html" class="nav-link">SELL</a></li>
+        <li><a href="messages.html" class="nav-link active">MESSAGES</a></li>
+        <li><a href="profile.html" class="nav-link">PROFILE</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="login.html" class="btn-ghost">LOGIN</a>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="messages-main">
+    <div class="messages-layout">
+
+      <!-- CONVERSATIONS LIST -->
+      <div class="conv-panel glass-card">
+        <div class="conv-header">
+          <div>
+            <div class="section-tag">// INBOX</div>
+            <h2 class="conv-title">MESSAGES</h2>
+          </div>
+          <span class="unread-count" id="unreadCount">3 unread</span>
+        </div>
+        <div class="conv-search">
+          <input type="text" id="convSearch" placeholder="Search conversations..."/>
+        </div>
+        <div class="conv-list" id="convList"><!-- JS --></div>
+      </div>
+
+      <!-- CHAT AREA -->
+      <div class="chat-panel glass-card" id="chatPanel">
+        <!-- Empty state -->
+        <div class="chat-empty" id="chatEmpty">
+          <div style="font-size:3rem;margin-bottom:16px;opacity:0.4;">💬</div>
+          <h3 style="font-family:var(--font-display);font-size:0.9rem;letter-spacing:0.1em;color:var(--text-secondary);">SELECT A CONVERSATION</h3>
+          <p style="font-size:0.85rem;color:var(--text-muted);margin-top:8px;">Choose a conversation from the left to start chatting</p>
+        </div>
+
+        <!-- Chat header -->
+        <div class="chat-header" id="chatHeader" style="display:none;">
+          <div class="chat-header-info">
+            <div class="chat-avatar" id="chatAvatar">?</div>
+            <div>
+              <div class="chat-name" id="chatName"></div>
+              <div class="chat-vehicle-label" id="chatVehicleLabel"></div>
+            </div>
+          </div>
+          <div class="chat-header-actions">
+            <a class="btn-ghost" id="viewVehicleBtn" style="padding:6px 12px;font-size:0.68rem;">VIEW VEHICLE</a>
+          </div>
+        </div>
+
+        <!-- Messages -->
+        <div class="chat-messages" id="chatMessages"></div>
+
+        <!-- Input -->
+        <div class="chat-input-wrap" id="chatInputWrap" style="display:none;">
+          <div class="chat-input-row">
+            <input type="text" id="msgInput" class="chat-input" placeholder="Type a message..." maxlength="1000"/>
+            <button class="chat-send-btn" id="sendMsgBtn">SEND ▶</button>
+          </div>
+          <div class="chat-input-meta">Press Enter to send</div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="../js/global.js"></script>
+  <script src="../js/navbar.js"></script>
+  <script src="../js/messages.js"></script>
+</body>
+</html>

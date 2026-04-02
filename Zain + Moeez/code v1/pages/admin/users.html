@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Users — Admin Panel</title>
+  <link rel="stylesheet" href="../../css/global.css"/>
+  <link rel="stylesheet" href="../../css/components.css"/>
+  <link rel="stylesheet" href="../../css/admin.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
+</head>
+<body class="admin-body">
+  <div class="bg-grid" style="opacity:0.4;"></div>
+  <div class="bg-scanlines"></div>
+
+  <!-- SIDEBAR -->
+  <aside class="admin-sidebar" id="adminSidebar">
+    <div class="admin-sidebar-logo">
+      <span style="color:var(--neon-purple);font-size:1.3rem;">⬡</span>
+      <div>
+        <div class="logo-text" style="font-size:0.9rem;">FOUR<span class="logo-accent">WHEELS</span></div>
+        <div class="admin-panel-tag">ADMIN PANEL</div>
+      </div>
+    </div>
+    <nav class="admin-nav">
+      <div class="admin-nav-section">MAIN</div>
+      <a href="dashboard.html" class="admin-nav-link" data-page="dashboard"><span class="anl-icon">⊞</span> DASHBOARD</a>
+      <a href="users.html" class="admin-nav-link active" data-page="users"><span class="anl-icon">👥</span> USERS</a>
+      <a href="vehicles.html" class="admin-nav-link" data-page="vehicles"><span class="anl-icon">🚗</span> VEHICLES</a>
+      <div class="admin-nav-section">SYSTEM</div>
+      <a href="#" class="admin-nav-link"><span class="anl-icon">⚙</span> SETTINGS</a>
+      <a href="#" class="admin-nav-link" id="adminLogoutLink"><span class="anl-icon">⏻</span> LOGOUT</a>
+    </nav>
+    <div class="admin-sidebar-footer">
+      <div class="asf-avatar">SA</div>
+      <div>
+        <div style="font-family:var(--font-display);font-size:0.72rem;font-weight:700;">SUPER ADMIN</div>
+        <div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--text-muted);">admin@fourwheels.pk</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="admin-main">
+    <header class="admin-topbar">
+      <div class="topbar-left">
+        <button class="sidebar-toggle-btn" id="sidebarToggle">☰</button>
+        <div class="topbar-breadcrumb">
+          <span style="color:var(--text-muted);">Admin</span>
+          <span style="color:var(--text-muted);margin:0 6px;">›</span>
+          <span style="color:var(--neon-cyan);">Users</span>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <div class="topbar-date" id="topbarDate"></div>
+        <a href="../login.html" class="btn-ghost" style="padding:6px 14px;font-size:0.7rem;">EXIT PANEL</a>
+      </div>
+    </header>
+
+    <div class="admin-content">
+      <div class="admin-page-header">
+        <div>
+          <div class="section-tag">// USER MANAGEMENT</div>
+          <h1 class="admin-page-title">ALL USERS</h1>
+        </div>
+        <div class="admin-page-actions">
+          <div class="admin-search-wrap">
+            <input type="text" id="userSearch" placeholder="Search users..." class="admin-search-input"/>
+          </div>
+          <select class="sort-select" id="userStatusFilter" style="width:auto;">
+            <option value="">All Status</option>
+            <option value="active">Active</option>
+            <option value="banned">Banned</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- STATS ROW -->
+      <div class="mini-stats-row" id="userMiniStats"></div>
+
+      <!-- TABLE -->
+      <div class="admin-table-card glass-card">
+        <table class="data-table" id="usersTable">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>USER</th>
+              <th>EMAIL</th>
+              <th>PHONE</th>
+              <th>CITY</th>
+              <th>LISTINGS</th>
+              <th>JOINED</th>
+              <th>STATUS</th>
+              <th>ACTIONS</th>
+            </tr>
+          </thead>
+          <tbody id="usersTbody"></tbody>
+        </table>
+        <div class="table-footer">
+          <span class="table-count" id="usersTableCount"></span>
+          <div class="pagination" id="usersPagination"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EDIT USER MODAL -->
+  <div class="modal-overlay" id="editUserModal">
+    <div class="modal">
+      <div class="modal-header">
+        <span class="modal-title">EDIT USER</span>
+        <button class="modal-close" onclick="closeModal('editUserModal')">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">FULL NAME</label>
+          <input type="text" id="editUserName"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">EMAIL</label>
+          <input type="email" id="editUserEmail"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">PHONE</label>
+          <input type="tel" id="editUserPhone"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">CITY</label>
+          <input type="text" id="editUserCity"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">STATUS</label>
+          <select id="editUserStatus">
+            <option value="active">Active</option>
+            <option value="banned">Banned</option>
+          </select>
+        </div>
+        <input type="hidden" id="editUserId"/>
+        <button class="btn-neon" style="width:100%;justify-content:center;margin-top:8px;"
+          onclick="saveUserEdit()">SAVE CHANGES</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DELETE CONFIRM MODAL -->
+  <div class="modal-overlay" id="deleteUserModal">
+    <div class="modal" style="max-width:420px;">
+      <div class="modal-header">
+        <span class="modal-title" style="color:var(--neon-pink);">⚠ DELETE USER</span>
+        <button class="modal-close" onclick="closeModal('deleteUserModal')">✕</button>
+      </div>
+      <div class="modal-body" style="text-align:center;padding:32px;">
+        <div style="font-size:3rem;margin-bottom:16px;">🗑️</div>
+        <p style="color:var(--text-secondary);margin-bottom:8px;">Are you sure you want to delete</p>
+        <p style="font-family:var(--font-display);font-size:0.9rem;color:var(--text-primary);margin-bottom:24px;" id="deleteUserNameLabel"></p>
+        <p style="color:var(--text-muted);font-size:0.82rem;margin-bottom:24px;">This will also remove all their listings. This action cannot be undone.</p>
+        <div style="display:flex;gap:12px;justify-content:center;">
+          <button class="btn-ghost" onclick="closeModal('deleteUserModal')">CANCEL</button>
+          <button class="btn-neon" style="background:linear-gradient(135deg,var(--neon-pink),#ff4444);" onclick="confirmDeleteUser()">DELETE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../js/global.js"></script>
+  <script src="../../js/admin-data.js"></script>
+  <script src="../../js/admin-users.js"></script>
+</body>
+</html>

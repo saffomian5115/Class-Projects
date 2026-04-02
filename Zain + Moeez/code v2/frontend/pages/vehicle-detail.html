@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Details - Four Wheels</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="animated-grid"></div>
+    
+    <nav class="navbar glass">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-car"></i>
+                <span>Four Wheels</span>
+            </div>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="vehicles.html">Vehicles</a>
+                <a href="add-listing.html" id="addListingNav" style="display: none;">Add Listing</a>
+                <a href="my-listings.html" id="myListingsNav" style="display: none;">My Listings</a>
+                <a href="profile.html" id="profileNav" style="display: none;">Profile</a>
+                <a href="login.html" id="authBtn">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="vehicle-detail-container" id="vehicleDetail">
+            <div class="loading-spinner">
+                <div class="spinner"></div>
+                <p>Loading vehicle details...</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Message Modal -->
+    <div id="messageModal" class="modal">
+        <div class="modal-content glass">
+            <h3 style="margin-bottom: 20px;">Send Message to Seller</h3>
+            <textarea id="messageText" rows="4" placeholder="Write your message here..."></textarea>
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+                <button onclick="sendMessage()" class="neon-btn primary">Send Message</button>
+                <button onclick="closeModal()" class="neon-btn secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3><i class="fas fa-car"></i> Four Wheels</h3>
+                <p>Your trusted vehicle marketplace with cutting-edge technology.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="vehicles.html">Browse Vehicles</a>
+                <a href="add-listing.html">Sell Vehicle</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>support@fourwheels.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Four Wheels. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/vehicle-detail.js"></script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Four Wheels — Future of Vehicle Trading</title>
+  <link rel="stylesheet" href="css/global.css"/>
+  <link rel="stylesheet" href="css/navbar.css"/>
+  <link rel="stylesheet" href="css/footer.css"/>
+  <link rel="stylesheet" href="css/components.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- ANIMATED BACKGROUND -->
+  <div class="bg-grid"></div>
+  <div class="bg-scanlines"></div>
+  <div class="bg-glow-orb orb1"></div>
+  <div class="bg-glow-orb orb2"></div>
+  <div class="bg-glow-orb orb3"></div>
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <span class="logo-icon">⬡</span>
+        <span class="logo-text">FOUR<span class="logo-accent">WHEELS</span></span>
+        <span class="logo-tag">v2.0</span>
+      </div>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link active">HOME</a></li>
+        <li><a href="pages/vehicles.html" class="nav-link">VEHICLES</a></li>
+        <li><a href="pages/sell.html" class="nav-link">SELL</a></li>
+        <li><a href="pages/messages.html" class="nav-link">MESSAGES</a></li>
+        <li><a href="pages/profile.html" class="nav-link">PROFILE</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="pages/login.html" class="btn-ghost">LOGIN</a>
+        <a href="pages/register.html" class="btn-neon">GET STARTED</a>
+        <button class="hamburger" id="hamburger">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        NEXT-GEN VEHICLE MARKETPLACE
+      </div>
+      <h1 class="hero-title">
+        FIND YOUR<br/>
+        <span class="title-glow">PERFECT RIDE</span><br/>
+        IN THE FUTURE
+      </h1>
+      <p class="hero-subtitle">
+        Pakistan's most advanced vehicle trading platform. Buy, sell, and explore with cutting-edge technology.
+      </p>
+
+      <!-- SEARCH BAR -->
+      <div class="hero-search">
+        <div class="search-glass">
+          <div class="search-row">
+            <div class="search-field">
+              <label>VEHICLE TYPE</label>
+              <select>
+                <option>All Types</option>
+                <option>Car</option>
+                <option>SUV</option>
+                <option>Bike</option>
+                <option>Truck</option>
+              </select>
+            </div>
+            <div class="search-divider"></div>
+            <div class="search-field">
+              <label>CITY</label>
+              <select>
+                <option>All Cities</option>
+                <option>Karachi</option>
+                <option>Lahore</option>
+                <option>Islamabad</option>
+                <option>Multan</option>
+                <option>Faisalabad</option>
+              </select>
+            </div>
+            <div class="search-divider"></div>
+            <div class="search-field">
+              <label>PRICE RANGE</label>
+              <select>
+                <option>Any Price</option>
+                <option>Under 5 Lac</option>
+                <option>5–20 Lac</option>
+                <option>20–50 Lac</option>
+                <option>50 Lac+</option>
+              </select>
+            </div>
+            <button class="btn-search">
+              <span>⌕</span> SEARCH
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- STATS -->
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number" data-target="12400">0</span>
+          <span class="stat-label">VEHICLES LISTED</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="8200">0</span>
+          <span class="stat-label">ACTIVE USERS</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="4700">0</span>
+          <span class="stat-label">DEALS CLOSED</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="car-hologram">
+        <div class="hologram-ring ring1"></div>
+        <div class="hologram-ring ring2"></div>
+        <div class="hologram-ring ring3"></div>
+        <div class="hologram-car">🚗</div>
+        <div class="hologram-scanline"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED VEHICLES -->
+  <section class="section featured-section">
+    <div class="section-header">
+      <div class="section-tag">// FEATURED LISTINGS</div>
+      <h2 class="section-title">TOP VEHICLES</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="vehicles-grid" id="featuredGrid">
+      <!-- Cards generated by JS -->
+    </div>
+
+    <div class="section-cta">
+      <a href="pages/vehicles.html" class="btn-neon-outline">VIEW ALL VEHICLES →</a>
+    </div>
+  </section>
+
+  <!-- WHY US SECTION -->
+  <section class="section features-section">
+    <div class="section-header">
+      <div class="section-tag">// WHY FOUR WHEELS</div>
+      <h2 class="section-title">BUILT FOR THE FUTURE</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card glass-card">
+        <div class="feature-icon">🛡️</div>
+        <h3>VERIFIED LISTINGS</h3>
+        <p>Every vehicle goes through our admin verification process before going live.</p>
+      </div>
+      <div class="feature-card glass-card">
+        <div class="feature-icon">🔍</div>
+        <h3>SMART SEARCH</h3>
+        <p>Filter by city, price, brand, and year with real-time results.</p>
+      </div>
+      <div class="feature-card glass-card">
+        <div class="feature-icon">🧊</div>
+        <h3>3D VEHICLE PREVIEW</h3>
+        <p>Explore vehicles in immersive 3D before making any decision.</p>
+      </div>
+      <div class="feature-card glass-card">
+        <div class="feature-icon">💬</div>
+        <h3>DIRECT MESSAGING</h3>
+        <p>Chat directly with sellers — no middleman, no delay.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <span class="logo-icon">⬡</span>
+        <span class="logo-text">FOUR<span class="logo-accent">WHEELS</span></span>
+        <p>Pakistan's next-generation vehicle marketplace. Powered by innovation.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn">FB</a>
+          <a href="#" class="social-btn">TW</a>
+          <a href="#" class="social-btn">IG</a>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <h4>PLATFORM</h4>
+        <ul>
+          <li><a href="#">Browse Vehicles</a></li>
+          <li><a href="#">Sell Vehicle</a></li>
+          <li><a href="#">Messages</a></li>
+          <li><a href="#">My Profile</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>SUPPORT</h4>
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-newsletter">
+        <h4>STAY UPDATED</h4>
+        <p>Get notified about new listings and features.</p>
+        <div class="newsletter-input">
+          <input type="email" placeholder="your@email.com"/>
+          <button class="btn-neon-sm">GO</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 FOUR WHEELS — BZU Multan Final Year Project</span>
+      <span class="footer-tag">[ SYSTEM ONLINE ]</span>
+    </div>
+  </footer>
+
+  <script src="js/global.js"></script>
+  <script src="js/navbar.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

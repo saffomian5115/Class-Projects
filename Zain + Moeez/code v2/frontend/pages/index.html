@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Four Wheels - Futuristic Vehicle Marketplace</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="animated-grid"></div>
+    
+    <nav class="navbar glass">
+    <div class="nav-container">
+        <div class="logo">
+            <i class="fas fa-car"></i>
+            <span>Four Wheels</span>
+        </div>
+        <div class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="vehicles.html">Vehicles</a>
+            <a href="add-listing.html" id="addListingNav" style="display: none;">Add Listing</a>
+            <a href="my-listings.html" id="myListingsNav" style="display: none;">My Listings</a>
+            <a href="profile.html" id="profileNav" style="display: none;">Profile</a>
+            <div class="user-menu" id="userMenu" style="display: none; position: relative;">
+                <button class="user-menu-btn" id="userMenuBtn">
+                    <i class="fas fa-user-circle"></i>
+                    <span id="userName"></span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="user-dropdown" id="userDropdown">
+                    <a href="profile.html"><i class="fas fa-user"></i> My Profile</a>
+                    <a href="my-listings.html"><i class="fas fa-list"></i> My Listings</a>
+                    <a href="add-listing.html"><i class="fas fa-plus-circle"></i> Add Listing</a>
+                    <hr>
+                    <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+            <a href="login.html" id="authBtn" class="neon-btn small">Login</a>
+            <a href="signup.html" id="signupBtn" class="neon-btn secondary small">Sign Up</a>
+        </div>
+    </div>
+</nav>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content glass">
+                <h1 class="glitch-text" data-text="FOUR WHEELS">FOUR WHEELS</h1>
+                <p class="hero-subtitle">Experience the future of vehicle trading</p>
+                <div class="hero-buttons">
+                    <a href="vehicles.html" class="neon-btn primary">Browse Vehicles</a>
+                    <a href="add-listing.html" class="neon-btn secondary">Sell Your Vehicle</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <h2 class="section-title">Why Choose <span class="neon-text">Four Wheels</span></h2>
+            <div class="features-grid">
+                <div class="feature-card glass">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Secure Trading</h3>
+                    <p>Verified users and secure transactions</p>
+                </div>
+                <div class="feature-card glass">
+                    <i class="fas fa-search"></i>
+                    <h3>Smart Search</h3>
+                    <p>Advanced filters and AI recommendations</p>
+                </div>
+                <div class="feature-card glass">
+                    <i class="fas fa-cube"></i>
+                    <h3>3D Preview</h3>
+                    <p>View vehicles in interactive 3D models</p>
+                </div>
+                <div class="feature-card glass">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Fast & Easy</h3>
+                    <p>List your vehicle in minutes</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-vehicles">
+            <h2 class="section-title">Featured <span class="neon-text">Vehicles</span></h2>
+            <div class="vehicles-grid" id="featuredVehicles">
+                <!-- Vehicles will load here via JavaScript -->
+                <div class="loading-spinner">
+                    <i class="fas fa-spinner fa-spin"></i>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer glass">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Four Wheels</h3>
+                <p>Your trusted vehicle marketplace</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="vehicles.html">Browse Vehicles</a>
+                <a href="add-listing.html">Sell Vehicle</a>
+                <a href="#">About Us</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p><i class="fas fa-envelope"></i> support@fourwheels.com</p>
+                <p><i class="fas fa-phone"></i> +92 300 1234567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Four Wheels. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/vehicles.js"></script>
+</body>
+</html>a<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Four Wheels - Futuristic Vehicle Marketplace</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="animated-grid"></div>
+    
+    <!-- Particle Background -->
+    <div class="particle-bg" id="particleBg"></div>
+    
+    <nav class="navbar glass">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-car"></i>
+                <span>Four Wheels</span>
+            </div>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html" class="active">Home</a>
+                <a href="vehicles.html">Vehicles</a>
+                <a href="add-listing.html" id="addListingNav" style="display: none;">Add Listing</a>
+                <a href="my-listings.html" id="myListingsNav" style="display: none;">My Listings</a>
+                <a href="profile.html" id="profileNav" style="display: none;">Profile</a>
+                <a href="login.html" id="authBtn">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content glass">
+                <h1 class="glitch-text" data-text="FOUR WHEELS">FOUR WHEELS</h1>
+                <p class="hero-subtitle">Experience the future of vehicle trading with cutting-edge technology</p>
+                <div class="hero-buttons">
+                    <a href="vehicles.html" class="neon-btn primary">
+                        <i class="fas fa-search"></i> Browse Vehicles
+                    </a>
+                    <a href="add-listing.html" id="sellBtn" class="neon-btn secondary">
+                        <i class="fas fa-plus-circle"></i> Sell Your Vehicle
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <h2 class="section-title">Why Choose <span class="neon-text">Four Wheels</span></h2>
+            <div class="features-grid">
+                <div class="feature-card glass">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Secure Trading</h3>
+                    <p>Verified users and secure transactions with advanced encryption</p>
+                </div>
+                <div class="feature-card glass">
+                    <i class="fas fa-search"></i>
+                    <h3>Smart Search</h3>
+                    <p>Advanced filters and AI-powered recommendations</p>
+                </div>
+                <div class="feature-card glass">
+                    <i class="fas fa-cube"></i>
+                    <h3>3D Preview</h3>
+                    <p>Interactive 3D models to inspect vehicles from every angle</p>
+                </div>
+                <div class="feature-card glass">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Lightning Fast</h3>
+                    <p>List your vehicle in minutes and reach thousands of buyers</p>
+                </div>
+                <div class="feature-card glass">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Price Insights</h3>
+                    <p>Get market insights and fair price recommendations</p>
+                </div>
+                <div class="feature-card glass">
+                    <i class="fas fa-headset"></i>
+                    <h3>24/7 Support</h3>
+                    <p>Dedicated support team to assist you anytime</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-vehicles">
+            <h2 class="section-title">Featured <span class="neon-text">Vehicles</span></h2>
+            <div class="vehicles-grid" id="featuredVehicles">
+                <div class="loading-spinner">
+                    <div class="spinner"></div>
+                    <p>Loading futuristic vehicles...</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="cta-section" style="text-align: center; padding: 60px 20px;">
+            <div class="glass" style="padding: 50px; max-width: 800px; margin: 0 auto;">
+                <h2 style="font-family: var(--font-display); margin-bottom: 20px;">Ready to Drive into the Future?</h2>
+                <p style="margin-bottom: 30px;">Join thousands of satisfied users who have already experienced the future of vehicle trading.</p>
+                <a href="signup.html" class="neon-btn primary">Get Started Now</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3><i class="fas fa-car"></i> Four Wheels</h3>
+                <p>Your trusted vehicle marketplace with cutting-edge technology.</p>
+                <p style="margin-top: 15px;">
+                    <i class="fas fa-map-marker-alt"></i> Pakistan<br>
+                    <i class="fas fa-envelope"></i> support@fourwheels.com<br>
+                    <i class="fas fa-phone"></i> +92 300 1234567
+                </p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="vehicles.html"><i class="fas fa-chevron-right"></i> Browse Vehicles</a>
+                <a href="add-listing.html"><i class="fas fa-chevron-right"></i> Sell Vehicle</a>
+                <a href="#"><i class="fas fa-chevron-right"></i> How It Works</a>
+                <a href="#"><i class="fas fa-chevron-right"></i> FAQ</a>
+            </div>
+            <div class="footer-section">
+                <h4>Categories</h4>
+                <a href="vehicles.html?type=Car"><i class="fas fa-chevron-right"></i> Cars</a>
+                <a href="vehicles.html?type=Bike"><i class="fas fa-chevron-right"></i> Bikes</a>
+                <a href="vehicles.html?type=SUV"><i class="fas fa-chevron-right"></i> SUVs</a>
+                <a href="vehicles.html?type=Truck"><i class="fas fa-chevron-right"></i> Trucks</a>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+                <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+                <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Four Wheels. All rights reserved. | Designed with <i class="fas fa-heart" style="color: var(--neon-red);"></i> for the future</p>
+        </div>
+    </footer>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/vehicles.js"></script>
+    <script>
+        // Particle background effect
+        function createParticles() {
+            const particleBg = document.getElementById('particleBg');
+            if (!particleBg) return;
+            
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                particle.style.width = Math.random() * 5 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = 10 + Math.random() * 10 + 's';
+                particleBg.appendChild(particle);
+            }
+        }
+        
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Initialize particles
+        createParticles();
+        
+        // Load featured vehicles
+        if (document.getElementById('featuredVehicles')) {
+            loadVehicles({ limit: 6 });
+        }
+        
+        // Show/hide sell button based on login status
+        const sellBtn = document.getElementById('sellBtn');
+        const user = getCurrentUser();
+        if (sellBtn && !user) {
+            sellBtn.href = 'login.html';
+        }
+    </script>
+</body>
+</html>

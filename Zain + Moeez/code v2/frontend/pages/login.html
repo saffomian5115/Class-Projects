@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Four Wheels</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="animated-grid"></div>
+    
+    <nav class="navbar glass">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-car"></i>
+                <span>Four Wheels</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="vehicles.html">Vehicles</a>
+                <a href="login.html" class="active">Login</a>
+                <a href="signup.html">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="form-container glass">
+            <div class="form-title">
+                <i class="fas fa-lock" style="color: var(--primary-cyan); font-size: 2rem; margin-bottom: 10px; display: inline-block;"></i>
+                <h2>Welcome Back</h2>
+                <p style="opacity: 0.7; font-size: 0.9rem;">Login to access your account</p>
+            </div>
+            
+            <div id="alertContainer"></div>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label><i class="fas fa-envelope"></i> Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                
+                <button type="submit" class="neon-btn primary" style="width: 100%; margin-top: 20px;">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+            </form>
+            
+            <div style="text-align: center; margin-top: 20px;">
+                <p style="opacity: 0.7;">Don't have an account? <a href="signup.html" style="color: var(--primary-cyan);">Sign Up</a></p>
+                <p style="margin-top: 10px;">
+                    <small>Demo Admin: admin@fourwheels.com / admin123</small>
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/auth.js"></script>
+</body>
+</html>

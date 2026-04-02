@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Listings - Four Wheels</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="animated-grid"></div>
+    
+    <nav class="navbar glass">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-car"></i>
+                <span>Four Wheels</span>
+            </div>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="vehicles.html">Vehicles</a>
+                <a href="add-listing.html">Add Listing</a>
+                <a href="my-listings.html" class="active">My Listings</a>
+                <a href="profile.html">Profile</a>
+                <a href="login.html" id="authBtn">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div style="max-width: 1200px; margin: 120px auto 60px; padding: 0 20px;">
+            <h2 style="margin-bottom: 30px;">
+                <i class="fas fa-list"></i> My Listings
+            </h2>
+            
+            <div id="listingsContainer">
+                <div class="loading-spinner">
+                    <div class="spinner"></div>
+                    <p>Loading your listings...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content glass" style="max-width: 600px;">
+            <h3 style="margin-bottom: 20px;">Edit Listing</h3>
+            <form id="editForm">
+                <input type="hidden" id="editVehicleId">
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" id="editTitle" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Price (PKR)</label>
+                        <input type="number" id="editPrice" required>
+                    </div>
+                    <div class="form-group">
+                        <label>City</label>
+                        <select id="editCity" required>
+                            <option value="Karachi">Karachi</option>
+                            <option value="Lahore">Lahore</option>
+                            <option value="Islamabad">Islamabad</option>
+                            <option value="Rawalpindi">Rawalpindi</option>
+                            <option value="Multan">Multan</option>
+                            <option value="Faisalabad">Faisalabad</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea id="editDescription" rows="4" required></textarea>
+                </div>
+                <div style="display: flex; gap: 10px; margin-top: 20px;">
+                    <button type="submit" class="neon-btn primary">Save Changes</button>
+                    <button type="button" onclick="closeEditModal()" class="neon-btn secondary">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3><i class="fas fa-car"></i> Four Wheels</h3>
+                <p>Your trusted vehicle marketplace.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="vehicles.html">Browse Vehicles</a>
+                <a href="add-listing.html">Sell Vehicle</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Four Wheels. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/my-listings.js"></script>
+</body>
+</html>

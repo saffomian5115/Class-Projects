@@ -1,0 +1,54 @@
+
+ Module 1 — Project Setup & UI Foundation
+ Folder structure
+ Global CSS (Glassmorphism + Neon Glow + Cyberpunk Theme)
+ Animated Tech Grid Background
+ Navbar & Footer
+ Reusable components (buttons, cards, inputs)
+
+
+
+ Module 2 — User Auth Pages
+ Register Page
+ Login Page
+ User Profile Page
+ JS validation + Fetch API ready
+
+
+
+ Module 3 — Vehicle Listing & Search
+ Home Page (Hero + Featured Vehicles)
+ Search & Filter Page
+ Vehicle Cards Grid/List View
+ Filters (city, price, brand, type)
+
+
+
+ Module 4 — Vehicle Detail & 3D Viewer
+ Vehicle Detail Page
+ Image Gallery
+ **Three.js 3D Model Viewer**
+ Seller Info + Message Button
+ Sell Your Vehicle Form (image upload)
+
+
+
+ Module 5 — Admin Panel
+ Admin Login
+ Dashboard (stats)
+ Users Management (view/edit/delete)
+ Vehicles Management (view/edit/delete/approve)
+
+
+
+ Module 6 — Backend + Database
+ Node.js + Express.js setup
+ All REST APIs
+ JWT Authentication
+ MongoDB + Mongoose
+ Image Upload (Multer)
+ Rolebased Access (user/admin)
+ Frontend ko Backend se connect karna
+
+
+

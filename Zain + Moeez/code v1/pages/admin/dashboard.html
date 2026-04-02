@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard — Admin Panel</title>
+  <link rel="stylesheet" href="../../css/global.css"/>
+  <link rel="stylesheet" href="../../css/components.css"/>
+  <link rel="stylesheet" href="../../css/admin.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
+</head>
+<body class="admin-body">
+  <div class="bg-grid" style="opacity:0.4;"></div>
+  <div class="bg-scanlines"></div>
+
+  <!-- ADMIN SIDEBAR -->
+  <aside class="admin-sidebar" id="adminSidebar">
+    <div class="admin-sidebar-logo">
+      <span style="color:var(--neon-purple);font-size:1.3rem;">⬡</span>
+      <div>
+        <div class="logo-text" style="font-size:0.9rem;">FOUR<span class="logo-accent">WHEELS</span></div>
+        <div class="admin-panel-tag">ADMIN PANEL</div>
+      </div>
+    </div>
+
+    <nav class="admin-nav">
+      <div class="admin-nav-section">MAIN</div>
+      <a href="dashboard.html" class="admin-nav-link active" data-page="dashboard">
+        <span class="anl-icon">⊞</span> DASHBOARD
+      </a>
+      <a href="users.html" class="admin-nav-link" data-page="users">
+        <span class="anl-icon">👥</span> USERS
+        <span class="anl-badge" id="sideUserCount">0</span>
+      </a>
+      <a href="vehicles.html" class="admin-nav-link" data-page="vehicles">
+        <span class="anl-icon">🚗</span> VEHICLES
+        <span class="anl-badge pending" id="sidePendingCount">0</span>
+      </a>
+
+      <div class="admin-nav-section">SYSTEM</div>
+      <a href="#" class="admin-nav-link">
+        <span class="anl-icon">⚙</span> SETTINGS
+      </a>
+      <a href="#" class="admin-nav-link" id="adminLogoutLink">
+        <span class="anl-icon">⏻</span> LOGOUT
+      </a>
+    </nav>
+
+    <div class="admin-sidebar-footer">
+      <div class="asf-avatar" id="asfAvatar">SA</div>
+      <div>
+        <div style="font-family:var(--font-display);font-size:0.72rem;font-weight:700;">SUPER ADMIN</div>
+        <div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--text-muted);">admin@fourwheels.pk</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ADMIN MAIN -->
+  <div class="admin-main">
+
+    <!-- TOP BAR -->
+    <header class="admin-topbar">
+      <div class="topbar-left">
+        <button class="sidebar-toggle-btn" id="sidebarToggle">☰</button>
+        <div class="topbar-breadcrumb">
+          <span style="color:var(--text-muted);">Admin</span>
+          <span style="color:var(--text-muted);margin:0 6px;">›</span>
+          <span style="color:var(--neon-cyan);">Dashboard</span>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <div class="topbar-date" id="topbarDate"></div>
+        <div class="topbar-notify glass-card">
+          <span>🔔</span>
+          <span class="notify-dot"></span>
+        </div>
+        <a href="../login.html" class="btn-ghost" style="padding:6px 14px;font-size:0.7rem;">EXIT PANEL</a>
+      </div>
+    </header>
+
+    <!-- CONTENT -->
+    <div class="admin-content">
+
+      <!-- PAGE HEADER -->
+      <div class="admin-page-header">
+        <div>
+          <div class="section-tag">// OVERVIEW</div>
+          <h1 class="admin-page-title">DASHBOARD</h1>
+        </div>
+        <div class="admin-live-tag">
+          <span class="badge-dot"></span> LIVE DATA
+        </div>
+      </div>
+
+      <!-- STAT CARDS -->
+      <div class="stat-cards-grid" id="statCardsGrid">
+        <!-- JS renders these -->
+      </div>
+
+      <!-- CHARTS ROW -->
+      <div class="charts-row">
+        <!-- Monthly listings chart -->
+        <div class="chart-card glass-card">
+          <div class="chart-card-header">
+            <div>
+              <div class="section-tag">// ANALYTICS</div>
+              <h3 class="chart-title">MONTHLY LISTINGS</h3>
+            </div>
+            <select class="sort-select" style="width:auto;padding:6px 12px;font-size:0.75rem;" id="chartPeriod">
+              <option>Last 6 Months</option>
+              <option>Last 12 Months</option>
+            </select>
+          </div>
+          <div class="bar-chart-wrap" id="barChartWrap"><!-- JS --></div>
+        </div>
+
+        <!-- Vehicle type donut -->
+        <div class="chart-card glass-card" style="max-width:320px;">
+          <div class="chart-card-header">
+            <div>
+              <div class="section-tag">// BREAKDOWN</div>
+              <h3 class="chart-title">BY VEHICLE TYPE</h3>
+            </div>
+          </div>
+          <div class="donut-wrap" id="donutWrap"><!-- JS --></div>
+          <div class="donut-legend" id="donutLegend"><!-- JS --></div>
+        </div>
+      </div>
+
+      <!-- RECENT ROWS -->
+      <div class="recent-row">
+
+        <!-- Recent Users -->
+        <div class="recent-card glass-card">
+          <div class="recent-header">
+            <div>
+              <div class="section-tag">// LATEST</div>
+              <h3 class="chart-title">RECENT USERS</h3>
+            </div>
+            <a href="users.html" class="btn-ghost" style="padding:6px 14px;font-size:0.68rem;">VIEW ALL</a>
+          </div>
+          <table class="data-table" id="recentUsersTable">
+            <thead>
+              <tr>
+                <th>USER</th><th>EMAIL</th><th>CITY</th><th>JOINED</th><th>STATUS</th>
+              </tr>
+            </thead>
+            <tbody id="recentUsersTbody"></tbody>
+          </table>
+        </div>
+
+        <!-- Recent Vehicles -->
+        <div class="recent-card glass-card">
+          <div class="recent-header">
+            <div>
+              <div class="section-tag">// LATEST</div>
+              <h3 class="chart-title">RECENT LISTINGS</h3>
+            </div>
+            <a href="vehicles.html" class="btn-ghost" style="padding:6px 14px;font-size:0.68rem;">VIEW ALL</a>
+          </div>
+          <table class="data-table" id="recentVehiclesTable">
+            <thead>
+              <tr>
+                <th>VEHICLE</th><th>SELLER</th><th>PRICE</th><th>STATUS</th><th>ACTION</th>
+              </tr>
+            </thead>
+            <tbody id="recentVehiclesTbody"></tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="../../js/global.js"></script>
+  <script src="../../js/admin-data.js"></script>
+  <script src="../../js/admin-dashboard.js"></script>
+</body>
+</html>

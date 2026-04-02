@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Vehicles - Four Wheels</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="animated-grid"></div>
+    
+    <nav class="navbar glass">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-car"></i>
+                <span>Four Wheels</span>
+            </div>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="vehicles.html" class="active">Vehicles</a>
+                <a href="add-listing.html" id="addListingNav" style="display: none;">Add Listing</a>
+                <a href="my-listings.html" id="myListingsNav" style="display: none;">My Listings</a>
+                <a href="profile.html" id="profileNav" style="display: none;">Profile</a>
+                <a href="login.html" id="authBtn">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div style="padding: 100px 20px 40px; max-width: 1400px; margin: 0 auto;">
+            <div style="display: grid; grid-template-columns: 300px 1fr; gap: 30px;">
+                <!-- Sidebar Filters -->
+                <aside class="glass" style="padding: 25px; height: fit-content; position: sticky; top: 100px;">
+                    <h3 style="font-family: var(--font-display); margin-bottom: 20px;">
+                        <i class="fas fa-filter"></i> Filters
+                    </h3>
+                    
+                    <div class="form-group">
+                        <label><i class="fas fa-search"></i> Search</label>
+                        <input type="text" id="searchInput" placeholder="Search vehicles...">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label><i class="fas fa-city"></i> City</label>
+                        <select id="cityFilter">
+                            <option value="all">All Cities</option>
+                            <option value="Karachi">Karachi</option>
+                            <option value="Lahore">Lahore</option>
+                            <option value="Islamabad">Islamabad</option>
+                            <option value="Rawalpindi">Rawalpindi</option>
+                            <option value="Multan">Multan</option>
+                            <option value="Faisalabad">Faisalabad</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label><i class="fas fa-car"></i> Vehicle Type</label>
+                        <select id="typeFilter">
+                            <option value="all">All Types</option>
+                            <option value="Car">Car</option>
+                            <option value="Bike">Bike</option>
+                            <option value="SUV">SUV</option>
+                            <option value="Truck">Truck</option>
+                            <option value="Van">Van</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label><i class="fas fa-tag"></i> Brand</label>
+                        <select id="brandFilter">
+                            <option value="all">All Brands</option>
+                            <option value="Honda">Honda</option>
+                            <option value="Toyota">Toyota</option>
+                            <option value="Suzuki">Suzuki</option>
+                            <option value="Hyundai">Hyundai</option>
+                            <option value="Kia">Kia</option>
+                            <option value="BMW">BMW</option>
+                            <option value="Mercedes">Mercedes</option>
+                            <option value="Audi">Audi</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label><i class="fas fa-dollar-sign"></i> Price Range (PKR)</label>
+                        <div style="display: flex; gap: 10px;">
+                            <input type="number" id="minPrice" placeholder="Min" style="width: 50%;">
+                            <input type="number" id="maxPrice" placeholder="Max" style="width: 50%;">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label><i class="fas fa-calendar"></i> Condition</label>
+                        <select id="conditionFilter">
+                            <option value="all">All</option>
+                            <option value="New">New</option>
+                            <option value="Used">Used</option>
+                        </select>
+                    </div>
+                    
+                    <button id="applyFilters" class="neon-btn primary" style="width: 100%;">
+                        <i class="fas fa-search"></i> Apply Filters
+                    </button>
+                    
+                    <button id="resetFilters" class="neon-btn secondary" style="width: 100%; margin-top: 10px;">
+                        <i class="fas fa-undo"></i> Reset
+                    </button>
+                </aside>
+                
+                <!-- Vehicles Grid -->
+                <div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h2 style="font-family: var(--font-display);">Available Vehicles</h2>
+                        <div>
+                            <span id="vehicleCount" style="opacity: 0.7;">0 vehicles found</span>
+                        </div>
+                    </div>
+                    
+                    <div id="vehiclesGrid" class="vehicles-grid">
+                        <div class="loading-spinner">
+                            <div class="spinner"></div>
+                            <p>Loading vehicles...</p>
+                        </div>
+                    </div>
+                    
+                    <div id="pagination" style="display: flex; justify-content: center; gap: 10px; margin-top: 40px;"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3><i class="fas fa-car"></i> Four Wheels</h3>
+                <p>Your trusted vehicle marketplace with cutting-edge technology.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="vehicles.html">Browse Vehicles</a>
+                <a href="add-listing.html">Sell Vehicle</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>support@fourwheels.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Four Wheels. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/vehicles.js"></script>
+</body>
+</html>

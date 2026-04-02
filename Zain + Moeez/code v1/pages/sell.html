@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sell Your Vehicle — Four Wheels</title>
+  <link rel="stylesheet" href="../css/global.css"/>
+  <link rel="stylesheet" href="../css/navbar.css"/>
+  <link rel="stylesheet" href="../css/footer.css"/>
+  <link rel="stylesheet" href="../css/components.css"/>
+  <link rel="stylesheet" href="../css/sell.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <div class="bg-grid"></div>
+  <div class="bg-scanlines"></div>
+  <div class="bg-glow-orb orb1"></div>
+  <div class="bg-glow-orb orb2"></div>
+  <canvas id="particles-canvas"></canvas>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-logo">
+        <span class="logo-icon">⬡</span>
+        <span class="logo-text">FOUR<span class="logo-accent">WHEELS</span></span>
+        <span class="logo-tag">v2.0</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../index.html" class="nav-link">HOME</a></li>
+        <li><a href="vehicles.html" class="nav-link">VEHICLES</a></li>
+        <li><a href="sell.html" class="nav-link active">SELL</a></li>
+        <li><a href="messages.html" class="nav-link">MESSAGES</a></li>
+        <li><a href="profile.html" class="nav-link">PROFILE</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="login.html" class="btn-ghost">LOGIN</a>
+        <a href="register.html" class="btn-neon">GET STARTED</a>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero" style="padding-bottom:20px;">
+    <div class="page-hero-content">
+      <div class="section-tag">// POST LISTING</div>
+      <h1 class="page-hero-title">SELL YOUR <span class="title-glow">VEHICLE</span></h1>
+      <p class="page-hero-sub">List your vehicle for free and reach thousands of buyers across Pakistan</p>
+    </div>
+    <!-- STEPS -->
+    <div class="sell-steps">
+      <div class="sell-step active" data-step="1">
+        <div class="step-num">01</div>
+        <div class="step-label">VEHICLE INFO</div>
+      </div>
+      <div class="step-connector"></div>
+      <div class="sell-step" data-step="2">
+        <div class="step-num">02</div>
+        <div class="step-label">PHOTOS</div>
+      </div>
+      <div class="step-connector"></div>
+      <div class="sell-step" data-step="3">
+        <div class="step-num">03</div>
+        <div class="step-label">PRICING</div>
+      </div>
+      <div class="step-connector"></div>
+      <div class="sell-step" data-step="4">
+        <div class="step-num">04</div>
+        <div class="step-label">REVIEW</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SELL FORM -->
+  <div class="sell-layout">
+    <form class="sell-form" id="sellForm" novalidate>
+
+      <!-- STEP 1: Vehicle Info -->
+      <div class="sell-step-panel active" id="step1">
+        <div class="sell-panel glass-card">
+          <div class="card-section-header">
+            <span class="section-tag">// STEP 01</span>
+            <h2 class="card-section-title">VEHICLE INFORMATION</h2>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">VEHICLE TYPE *</label>
+              <select id="vType" required>
+                <option value="">Select type</option>
+                <option>Car</option><option>SUV</option>
+                <option>Truck</option><option>Bike</option><option>Other</option>
+              </select>
+              <span class="form-error" id="vTypeErr">Required</span>
+            </div>
+            <div class="form-group">
+              <label class="form-label">BRAND / MAKE *</label>
+              <input type="text" id="vBrand" placeholder="e.g. Toyota, Honda" required/>
+              <span class="form-error" id="vBrandErr">Required</span>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">MODEL *</label>
+              <input type="text" id="vModel" placeholder="e.g. Corolla, Civic" required/>
+              <span class="form-error" id="vModelErr">Required</span>
+            </div>
+            <div class="form-group">
+              <label class="form-label">YEAR *</label>
+              <select id="vYear" required>
+                <option value="">Select year</option>
+                <option>2024</option><option>2023</option><option>2022</option>
+                <option>2021</option><option>2020</option><option>2019</option>
+                <option>2018</option><option>2017</option><option>2016</option>
+                <option>2015</option><option>Older</option>
+              </select>
+              <span class="form-error" id="vYearErr">Required</span>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">FUEL TYPE *</label>
+              <select id="vFuel">
+                <option value="">Select fuel</option>
+                <option>Petrol</option><option>Diesel</option>
+                <option>Hybrid</option><option>Electric</option><option>CNG</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">TRANSMISSION</label>
+              <select id="vTransmission">
+                <option>Manual</option><option>Automatic</option>
+                <option>CVT</option><option>Semi-Automatic</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">MILEAGE (KM)</label>
+              <input type="number" id="vMileage" placeholder="e.g. 45000"/>
+            </div>
+            <div class="form-group">
+              <label class="form-label">COLOR</label>
+              <input type="text" id="vColor" placeholder="e.g. Pearl White"/>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">ENGINE CC</label>
+              <input type="text" id="vEngine" placeholder="e.g. 1800cc"/>
+            </div>
+            <div class="form-group">
+              <label class="form-label">CONDITION *</label>
+              <select id="vCondition">
+                <option>Used</option><option>New</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">CITY *</label>
+            <select id="vCity" required>
+              <option value="">Select city</option>
+              <option>Karachi</option><option>Lahore</option><option>Islamabad</option>
+              <option>Multan</option><option>Faisalabad</option><option>Peshawar</option>
+              <option>Rawalpindi</option><option>Quetta</option><option>Sialkot</option>
+              <option>Other</option>
+            </select>
+            <span class="form-error" id="vCityErr">Required</span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">DESCRIPTION</label>
+            <textarea id="vDesc" rows="4" placeholder="Describe your vehicle — condition, features, history, reason for selling..."></textarea>
+            <div class="char-count"><span id="descCount">0</span>/500</div>
+          </div>
+
+          <div class="step-nav">
+            <span></span>
+            <button type="button" class="btn-neon" id="toStep2">NEXT: PHOTOS →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2: Photos -->
+      <div class="sell-step-panel" id="step2">
+        <div class="sell-panel glass-card">
+          <div class="card-section-header">
+            <span class="section-tag">// STEP 02</span>
+            <h2 class="card-section-title">UPLOAD PHOTOS</h2>
+          </div>
+
+          <div class="upload-zone" id="uploadZone">
+            <input type="file" id="photoInput" multiple accept="image/*" hidden/>
+            <div class="upload-zone-inner" id="uploadZoneInner">
+              <div class="upload-icon">📷</div>
+              <div class="upload-title">DRAG & DROP PHOTOS HERE</div>
+              <div class="upload-sub">or click to browse — JPG, PNG, WEBP — Max 5MB each</div>
+              <button type="button" class="btn-ghost" id="browseBtn">BROWSE FILES</button>
+            </div>
+          </div>
+
+          <div class="photo-preview-grid" id="photoPreviewGrid"></div>
+
+          <div class="upload-tips">
+            <div class="tip-item"><span class="tip-icon">💡</span> Add at least 3 photos for better visibility</div>
+            <div class="tip-item"><span class="tip-icon">💡</span> Include front, back, interior, and dashboard shots</div>
+            <div class="tip-item"><span class="tip-icon">💡</span> Good lighting = more buyer interest</div>
+          </div>
+
+          <div class="step-nav">
+            <button type="button" class="btn-ghost" id="backToStep1">← BACK</button>
+            <button type="button" class="btn-neon" id="toStep3">NEXT: PRICING →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3: Pricing -->
+      <div class="sell-step-panel" id="step3">
+        <div class="sell-panel glass-card">
+          <div class="card-section-header">
+            <span class="section-tag">// STEP 03</span>
+            <h2 class="card-section-title">PRICING & CONTACT</h2>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">ASKING PRICE (PKR) *</label>
+            <div class="input-icon-wrap">
+              <span class="input-icon" style="font-style:normal;font-size:0.8rem;">PKR</span>
+              <input type="number" id="vPrice" placeholder="e.g. 3500000" style="padding-left:52px;" required/>
+            </div>
+            <div class="price-hint" id="priceHint"></div>
+            <span class="form-error" id="vPriceErr">Required</span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">PRICE TYPE</label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="priceType" value="Fixed" checked/> Fixed
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="priceType" value="Negotiable"/> Negotiable
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="priceType" value="Exchange"/> Exchange OK
+              </label>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">CONTACT NAME *</label>
+              <input type="text" id="contactNameSell" placeholder="Your name" required/>
+              <span class="form-error" id="contactNameErr">Required</span>
+            </div>
+            <div class="form-group">
+              <label class="form-label">CONTACT PHONE *</label>
+              <input type="tel" id="contactPhone" placeholder="03XX-XXXXXXX" required/>
+              <span class="form-error" id="contactPhoneErr">Required</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">SHOW ON LISTING</label>
+            <div class="toggle-group">
+              <label class="toggle-label">
+                <input type="checkbox" id="showPhone" checked/>
+                <span class="toggle-slider"></span>
+                Show phone number
+              </label>
+              <label class="toggle-label">
+                <input type="checkbox" id="showWhatsapp" checked/>
+                <span class="toggle-slider"></span>
+                Allow WhatsApp contact
+              </label>
+            </div>
+          </div>
+
+          <div class="step-nav">
+            <button type="button" class="btn-ghost" id="backToStep2">← BACK</button>
+            <button type="button" class="btn-neon" id="toStep4">NEXT: REVIEW →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 4: Review & Submit -->
+      <div class="sell-step-panel" id="step4">
+        <div class="sell-panel glass-card">
+          <div class="card-section-header">
+            <span class="section-tag">// STEP 04</span>
+            <h2 class="card-section-title">REVIEW & SUBMIT</h2>
+          </div>
+
+          <div class="review-preview" id="reviewPreview">
+            <!-- Generated by JS -->
+          </div>
+
+          <div class="review-agreement">
+            <label class="form-check">
+              <input type="checkbox" id="agreeTerms"/>
+              I confirm that the vehicle information is accurate and I agree to the
+              <a href="#" class="auth-link">Terms of Service</a>.
+            </label>
+            <span class="form-error" id="agreeTermsErr">You must agree to continue</span>
+          </div>
+
+          <div class="step-nav">
+            <button type="button" class="btn-ghost" id="backToStep3">← BACK</button>
+            <button type="submit" class="btn-neon" id="submitListingBtn">
+              <span id="submitText">🚀 POST LISTING</span>
+              <span class="btn-loader hidden" id="submitLoader">⟳</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </form>
+
+    <!-- SIDEBAR TIPS -->
+    <aside class="sell-sidebar">
+      <div class="sell-tip-card glass-card">
+        <div class="sell-tip-header">
+          <span class="section-tag">// TIPS</span>
+          <h3>SELLING TIPS</h3>
+        </div>
+        <div class="sell-tip-list">
+          <div class="stl-item"><span class="stl-icon">📸</span><span>Upload 8+ clear photos from all angles</span></div>
+          <div class="stl-item"><span class="stl-icon">💰</span><span>Research market price before listing</span></div>
+          <div class="stl-item"><span class="stl-icon">📋</span><span>Mention all features and recent repairs</span></div>
+          <div class="stl-item"><span class="stl-icon">✅</span><span>Keep documents ready before meeting</span></div>
+          <div class="stl-item"><span class="stl-icon">🤝</span><span>Meet buyers in safe, public places</span></div>
+        </div>
+      </div>
+
+      <div class="sell-tip-card glass-card">
+        <div class="sell-tip-header">
+          <span class="section-tag">// FREE FEATURES</span>
+          <h3>WHAT YOU GET</h3>
+        </div>
+        <div class="sell-tip-list">
+          <div class="stl-item"><span class="stl-icon">🌍</span><span>Visible to all Pakistan buyers</span></div>
+          <div class="stl-item"><span class="stl-icon">🔔</span><span>Instant buyer notifications</span></div>
+          <div class="stl-item"><span class="stl-icon">🧊</span><span>3D model viewer for your listing</span></div>
+          <div class="stl-item"><span class="stl-icon">💬</span><span>Direct messaging with buyers</span></div>
+          <div class="stl-item"><span class="stl-icon">📊</span><span>Listing analytics in your profile</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- SUCCESS MODAL -->
+  <div class="modal-overlay" id="successModal">
+    <div class="modal" style="text-align:center;">
+      <div class="modal-body" style="padding:48px 32px;">
+        <div style="font-size:4rem;margin-bottom:16px;">🎉</div>
+        <h2 style="font-family:var(--font-display);font-size:1.2rem;letter-spacing:0.1em;color:var(--neon-cyan);margin-bottom:12px;">LISTING SUBMITTED!</h2>
+        <p style="color:var(--text-secondary);margin-bottom:8px;">Your vehicle has been submitted for admin review.</p>
+        <p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:28px;">You'll be notified once it goes live (usually within 24 hours).</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+          <a href="profile.html" class="btn-neon">VIEW MY LISTINGS</a>
+          <a href="vehicles.html" class="btn-ghost">BROWSE VEHICLES</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/global.js"></script>
+  <script src="../js/navbar.js"></script>
+  <script src="../js/sell.js"></script>
+</body>
+</html>

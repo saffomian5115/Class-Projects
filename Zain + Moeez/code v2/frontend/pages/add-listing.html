@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Listing - Four Wheels</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="animated-grid"></div>
+    
+    <nav class="navbar glass">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-car"></i>
+                <span>Four Wheels</span>
+            </div>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="vehicles.html">Vehicles</a>
+                <a href="add-listing.html" class="active">Add Listing</a>
+                <a href="my-listings.html">My Listings</a>
+                <a href="profile.html">Profile</a>
+                <a href="login.html" id="authBtn">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="listing-form-container glass">
+            <h2 style="text-align: center; margin-bottom: 30px;">
+                <i class="fas fa-plus-circle"></i> List Your Vehicle
+            </h2>
+            
+            <div id="alertContainer"></div>
+            
+            <form id="addListingForm">
+                <div class="form-group">
+                    <label><i class="fas fa-heading"></i> Title</label>
+                    <input type="text" id="title" placeholder="e.g., Honda Civic 2022" required>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><i class="fas fa-tag"></i> Brand</label>
+                        <select id="brand" required>
+                            <option value="">Select Brand</option>
+                            <option value="Honda">Honda</option>
+                            <option value="Toyota">Toyota</option>
+                            <option value="Suzuki">Suzuki</option>
+                            <option value="Hyundai">Hyundai</option>
+                            <option value="Kia">Kia</option>
+                            <option value="BMW">BMW</option>
+                            <option value="Mercedes">Mercedes</option>
+                            <option value="Audi">Audi</option>
+                            <option value="Yamaha">Yamaha</option>
+                            <option value="United">United</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label><i class="fas fa-car"></i> Model</label>
+                        <input type="text" id="model" placeholder="e.g., Civic, Corolla" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><i class="fas fa-calendar"></i> Year</label>
+                        <input type="number" id="year" placeholder="2022" min="1980" max="2025" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label><i class="fas fa-dollar-sign"></i> Price (PKR)</label>
+                        <input type="number" id="price" placeholder="e.g., 5000000" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><i class="fas fa-map-marker-alt"></i> City</label>
+                        <select id="city" required>
+                            <option value="">Select City</option>
+                            <option value="Karachi">Karachi</option>
+                            <option value="Lahore">Lahore</option>
+                            <option value="Islamabad">Islamabad</option>
+                            <option value="Rawalpindi">Rawalpindi</option>
+                            <option value="Multan">Multan</option>
+                            <option value="Faisalabad">Faisalabad</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label><i class="fas fa-tachometer-alt"></i> Condition</label>
+                        <select id="condition" required>
+                            <option value="">Select Condition</option>
+                            <option value="New">New</option>
+                            <option value="Used">Used</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><i class="fas fa-car-side"></i> Vehicle Type</label>
+                        <select id="vehicleType" required>
+                            <option value="">Select Type</option>
+                            <option value="Car">Car</option>
+                            <option value="Bike">Bike</option>
+                            <option value="SUV">SUV</option>
+                            <option value="Truck">Truck</option>
+                            <option value="Van">Van</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label><i class="fas fa-align-left"></i> Description</label>
+                    <textarea id="description" rows="5" placeholder="Describe your vehicle in detail..." required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label><i class="fas fa-images"></i> Images (Max 5)</label>
+                    <input type="file" id="images" multiple accept="image/*" onchange="previewImages(this)">
+                    <div id="imagePreview" class="image-preview-grid"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label><i class="fas fa-cube"></i> 3D Model (Optional - .glb or .gltf)</label>
+                    <input type="file" id="threeDModel" accept=".glb,.gltf">
+                </div>
+                
+                <button type="submit" class="neon-btn primary" style="width: 100%; margin-top: 20px;">
+                    <i class="fas fa-plus-circle"></i> List Vehicle
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3><i class="fas fa-car"></i> Four Wheels</h3>
+                <p>Your trusted vehicle marketplace.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="vehicles.html">Browse Vehicles</a>
+                <a href="add-listing.html">Sell Vehicle</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>support@fourwheels.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Four Wheels. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/add-listing.js"></script>
+</body>
+</html>

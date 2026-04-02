@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Browse Vehicles — Four Wheels</title>
+  <link rel="stylesheet" href="../css/global.css"/>
+  <link rel="stylesheet" href="../css/navbar.css"/>
+  <link rel="stylesheet" href="../css/footer.css"/>
+  <link rel="stylesheet" href="../css/components.css"/>
+  <link rel="stylesheet" href="../css/vehicles.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <div class="bg-grid"></div>
+  <div class="bg-scanlines"></div>
+  <div class="bg-glow-orb orb1"></div>
+  <div class="bg-glow-orb orb2"></div>
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-logo">
+        <span class="logo-icon">⬡</span>
+        <span class="logo-text">FOUR<span class="logo-accent">WHEELS</span></span>
+        <span class="logo-tag">v2.0</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../index.html" class="nav-link">HOME</a></li>
+        <li><a href="vehicles.html" class="nav-link active">VEHICLES</a></li>
+        <li><a href="sell.html" class="nav-link">SELL</a></li>
+        <li><a href="messages.html" class="nav-link">MESSAGES</a></li>
+        <li><a href="profile.html" class="nav-link">PROFILE</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="login.html" class="btn-ghost">LOGIN</a>
+        <a href="register.html" class="btn-neon">GET STARTED</a>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-content">
+      <div class="section-tag">// MARKETPLACE</div>
+      <h1 class="page-hero-title">BROWSE <span class="title-glow">VEHICLES</span></h1>
+      <p class="page-hero-sub">Explore thousands of verified listings across Pakistan</p>
+    </div>
+    <!-- QUICK SEARCH BAR -->
+    <div class="quick-search-bar glass-card">
+      <input type="text" id="quickSearch" placeholder="Search by name, brand, model..." />
+      <button class="btn-search" id="quickSearchBtn"><span>⌕</span> SEARCH</button>
+    </div>
+  </section>
+
+  <!-- MAIN LAYOUT -->
+  <div class="vehicles-layout">
+
+    <!-- FILTER SIDEBAR -->
+    <aside class="filter-sidebar glass-card" id="filterSidebar">
+      <div class="filter-sidebar-header">
+        <span class="section-tag" style="margin:0;">// FILTERS</span>
+        <button class="filter-clear-btn" id="clearFiltersBtn">CLEAR ALL</button>
+      </div>
+
+      <!-- Vehicle Type -->
+      <div class="filter-section">
+        <div class="filter-title">VEHICLE TYPE</div>
+        <div class="filter-options">
+          <label class="filter-option"><input type="checkbox" name="type" value="Car"/> Car</label>
+          <label class="filter-option"><input type="checkbox" name="type" value="SUV"/> SUV</label>
+          <label class="filter-option"><input type="checkbox" name="type" value="Truck"/> Truck / Van</label>
+          <label class="filter-option"><input type="checkbox" name="type" value="Bike"/> Bike</label>
+          <label class="filter-option"><input type="checkbox" name="type" value="Other"/> Other</label>
+        </div>
+      </div>
+
+      <!-- City -->
+      <div class="filter-section">
+        <div class="filter-title">CITY</div>
+        <div class="filter-options">
+          <label class="filter-option"><input type="checkbox" name="city" value="Karachi"/> Karachi</label>
+          <label class="filter-option"><input type="checkbox" name="city" value="Lahore"/> Lahore</label>
+          <label class="filter-option"><input type="checkbox" name="city" value="Islamabad"/> Islamabad</label>
+          <label class="filter-option"><input type="checkbox" name="city" value="Multan"/> Multan</label>
+          <label class="filter-option"><input type="checkbox" name="city" value="Faisalabad"/> Faisalabad</label>
+          <label class="filter-option"><input type="checkbox" name="city" value="Peshawar"/> Peshawar</label>
+          <label class="filter-option"><input type="checkbox" name="city" value="Rawalpindi"/> Rawalpindi</label>
+        </div>
+      </div>
+
+      <!-- Price Range -->
+      <div class="filter-section">
+        <div class="filter-title">PRICE RANGE (PKR)</div>
+        <div class="price-range-wrap">
+          <div class="price-labels">
+            <span id="priceMin">0</span>
+            <span id="priceMax">200 Lac+</span>
+          </div>
+          <input type="range" id="priceRange" min="0" max="20000000" step="100000" value="20000000"/>
+        </div>
+      </div>
+
+      <!-- Year -->
+      <div class="filter-section">
+        <div class="filter-title">YEAR</div>
+        <div class="filter-year-row">
+          <select id="yearFrom">
+            <option value="">From</option>
+            <option>2015</option><option>2016</option><option>2017</option>
+            <option>2018</option><option>2019</option><option>2020</option>
+            <option>2021</option><option>2022</option><option>2023</option>
+            <option>2024</option>
+          </select>
+          <select id="yearTo">
+            <option value="">To</option>
+            <option>2016</option><option>2017</option><option>2018</option>
+            <option>2019</option><option>2020</option><option>2021</option>
+            <option>2022</option><option>2023</option><option>2024</option>
+            <option>2025</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Fuel Type -->
+      <div class="filter-section">
+        <div class="filter-title">FUEL TYPE</div>
+        <div class="filter-options">
+          <label class="filter-option"><input type="checkbox" name="fuel" value="Petrol"/> Petrol</label>
+          <label class="filter-option"><input type="checkbox" name="fuel" value="Diesel"/> Diesel</label>
+          <label class="filter-option"><input type="checkbox" name="fuel" value="Hybrid"/> Hybrid</label>
+          <label class="filter-option"><input type="checkbox" name="fuel" value="Electric"/> Electric</label>
+          <label class="filter-option"><input type="checkbox" name="fuel" value="CNG"/> CNG</label>
+        </div>
+      </div>
+
+      <!-- Condition -->
+      <div class="filter-section">
+        <div class="filter-title">CONDITION</div>
+        <div class="filter-options">
+          <label class="filter-option"><input type="checkbox" name="condition" value="New"/> New</label>
+          <label class="filter-option"><input type="checkbox" name="condition" value="Used"/> Used</label>
+        </div>
+      </div>
+
+      <button class="btn-neon" style="width:100%;justify-content:center;margin-top:8px;" id="applyFiltersBtn">
+        APPLY FILTERS
+      </button>
+    </aside>
+
+    <!-- VEHICLES CONTENT -->
+    <div class="vehicles-content">
+
+      <!-- TOOLBAR -->
+      <div class="vehicles-toolbar">
+        <div class="toolbar-left">
+          <span class="results-count" id="resultsCount">Showing <strong>0</strong> vehicles</span>
+          <!-- Active filter tags -->
+          <div class="active-tags" id="activeTags"></div>
+        </div>
+        <div class="toolbar-right">
+          <select class="sort-select" id="sortSelect">
+            <option value="newest">Newest First</option>
+            <option value="price-asc">Price: Low → High</option>
+            <option value="price-desc">Price: High → Low</option>
+            <option value="year-desc">Year: Newest</option>
+            <option value="year-asc">Year: Oldest</option>
+          </select>
+          <!-- View toggle -->
+          <div class="view-toggle">
+            <button class="view-btn active" id="gridViewBtn" title="Grid View">⊞</button>
+            <button class="view-btn" id="listViewBtn" title="List View">☰</button>
+          </div>
+          <!-- Mobile filter toggle -->
+          <button class="filter-toggle-btn" id="filterToggleBtn">⚙ FILTERS</button>
+        </div>
+      </div>
+
+      <!-- VEHICLES GRID -->
+      <div class="vehicles-grid" id="vehiclesGrid">
+        <!-- Skeleton loaders -->
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+      </div>
+
+      <!-- COMPARE BAR -->
+      <div class="compare-bar glass-card" id="compareBar">
+        <span class="compare-label">COMPARE MODE</span>
+        <div class="compare-slots" id="compareSlots"></div>
+        <div class="compare-actions">
+          <button class="btn-neon" id="compareNowBtn">COMPARE NOW</button>
+          <button class="btn-ghost" id="compareClearBtn">CLEAR</button>
+        </div>
+      </div>
+
+      <!-- PAGINATION -->
+      <div class="pagination" id="pagination"></div>
+    </div>
+  </div>
+
+  <!-- COMPARE MODAL -->
+  <div class="modal-overlay" id="compareModal">
+    <div class="modal" style="max-width:900px;">
+      <div class="modal-header">
+        <span class="modal-title">VEHICLE COMPARISON</span>
+        <button class="modal-close" id="closeCompareModal">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="compare-table-wrap" id="compareTableWrap"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-bottom" style="max-width:100%;">
+      <span>© 2026 FOUR WHEELS — BZU Multan Final Year Project</span>
+      <span class="footer-tag">[ SYSTEM ONLINE ]</span>
+    </div>
+  </footer>
+
+  <script src="../js/global.js"></script>
+  <script src="../js/navbar.js"></script>
+  <script src="../js/vehicles.js"></script>
+</body>
+</html>

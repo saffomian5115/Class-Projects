@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Profile — Four Wheels</title>
+  <link rel="stylesheet" href="../css/global.css"/>
+  <link rel="stylesheet" href="../css/navbar.css"/>
+  <link rel="stylesheet" href="../css/footer.css"/>
+  <link rel="stylesheet" href="../css/components.css"/>
+  <link rel="stylesheet" href="../css/auth.css"/>
+  <link rel="stylesheet" href="../css/profile.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <div class="bg-grid"></div>
+  <div class="bg-scanlines"></div>
+  <div class="bg-glow-orb orb1"></div>
+  <div class="bg-glow-orb orb2"></div>
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-logo">
+        <span class="logo-icon">⬡</span>
+        <span class="logo-text">FOUR<span class="logo-accent">WHEELS</span></span>
+        <span class="logo-tag">v2.0</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../index.html" class="nav-link">HOME</a></li>
+        <li><a href="vehicles.html" class="nav-link">VEHICLES</a></li>
+        <li><a href="sell.html" class="nav-link">SELL</a></li>
+        <li><a href="messages.html" class="nav-link">MESSAGES</a></li>
+        <li><a href="profile.html" class="nav-link active">PROFILE</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="btn-ghost" id="logoutBtn">LOGOUT</button>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PROFILE MAIN -->
+  <main class="profile-main">
+    <div class="profile-container">
+
+      <!-- SIDEBAR -->
+      <aside class="profile-sidebar">
+        <div class="profile-avatar-card glass-card">
+          <div class="avatar-wrap">
+            <div class="avatar-circle" id="avatarCircle">MZ</div>
+            <button class="avatar-edit-btn" id="avatarEditBtn">✎</button>
+            <input type="file" id="avatarInput" accept="image/*" hidden/>
+          </div>
+          <div class="profile-name" id="profileName">Muhammad Zain</div>
+          <div class="profile-email" id="profileEmail">zain@example.com</div>
+          <div class="profile-city" id="profileCity">📍 Multan</div>
+          <div class="profile-joined">Joined: January 2026</div>
+          <div class="profile-badge">
+            <span class="status-badge active">● VERIFIED USER</span>
+          </div>
+        </div>
+
+        <!-- SIDEBAR STATS -->
+        <div class="sidebar-stats glass-card">
+          <div class="sidebar-stat">
+            <span class="ss-number" id="myListingsCount">5</span>
+            <span class="ss-label">MY LISTINGS</span>
+          </div>
+          <div class="ss-divider"></div>
+          <div class="sidebar-stat">
+            <span class="ss-number">3</span>
+            <span class="ss-label">ACTIVE</span>
+          </div>
+          <div class="ss-divider"></div>
+          <div class="sidebar-stat">
+            <span class="ss-number">2</span>
+            <span class="ss-label">SOLD</span>
+          </div>
+        </div>
+
+        <!-- SIDEBAR MENU -->
+        <nav class="sidebar-menu glass-card">
+          <button class="sidebar-menu-item active" data-tab="listings">
+            <span class="smi-icon">🚗</span> MY LISTINGS
+          </button>
+          <button class="sidebar-menu-item" data-tab="edit">
+            <span class="smi-icon">✎</span> EDIT PROFILE
+          </button>
+          <button class="sidebar-menu-item" data-tab="password">
+            <span class="smi-icon">🔒</span> CHANGE PASSWORD
+          </button>
+          <button class="sidebar-menu-item" data-tab="messages">
+            <span class="smi-icon">💬</span> MESSAGES
+            <span class="smi-badge">3</span>
+          </button>
+          <button class="sidebar-menu-item danger" id="logoutSidebar">
+            <span class="smi-icon">⏻</span> LOGOUT
+          </button>
+        </nav>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <div class="profile-content">
+
+        <!-- TAB: MY LISTINGS -->
+        <div class="profile-tab active" id="tab-listings">
+          <div class="tab-header">
+            <div class="tab-title-wrap">
+              <div class="section-tag">// MY VEHICLES</div>
+              <h2 class="tab-title">MY LISTINGS</h2>
+            </div>
+            <a href="sell.html" class="btn-neon">+ ADD NEW</a>
+          </div>
+
+          <div class="my-listings-grid" id="myListingsGrid">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- TAB: EDIT PROFILE -->
+        <div class="profile-tab" id="tab-edit">
+          <div class="tab-header">
+            <div class="tab-title-wrap">
+              <div class="section-tag">// ACCOUNT SETTINGS</div>
+              <h2 class="tab-title">EDIT PROFILE</h2>
+            </div>
+          </div>
+
+          <form class="edit-form glass-card" id="editProfileForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">FIRST NAME</label>
+                <input type="text" id="editFirstName" value="Muhammad"/>
+              </div>
+              <div class="form-group">
+                <label class="form-label">LAST NAME</label>
+                <input type="text" id="editLastName" value="Zain"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">EMAIL ADDRESS</label>
+              <div class="input-icon-wrap">
+                <span class="input-icon">@</span>
+                <input type="email" id="editEmail" value="zain@example.com"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">PHONE NUMBER</label>
+              <div class="input-icon-wrap">
+                <span class="input-icon">📞</span>
+                <input type="tel" id="editPhone" value="0312-3456789"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">CITY</label>
+              <select id="editCity">
+                <option>Karachi</option><option>Lahore</option>
+                <option selected>Multan</option><option>Islamabad</option>
+                <option>Faisalabad</option><option>Peshawar</option>
+                <option>Rawalpindi</option><option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">BIO (optional)</label>
+              <textarea id="editBio" rows="3" placeholder="Tell buyers about yourself..."></textarea>
+            </div>
+            <button type="submit" class="btn-neon">SAVE CHANGES</button>
+          </form>
+        </div>
+
+        <!-- TAB: CHANGE PASSWORD -->
+        <div class="profile-tab" id="tab-password">
+          <div class="tab-header">
+            <div class="tab-title-wrap">
+              <div class="section-tag">// SECURITY</div>
+              <h2 class="tab-title">CHANGE PASSWORD</h2>
+            </div>
+          </div>
+
+          <form class="edit-form glass-card" id="changePassForm" novalidate>
+            <div class="form-group">
+              <label class="form-label">CURRENT PASSWORD</label>
+              <div class="input-icon-wrap">
+                <span class="input-icon">🔒</span>
+                <input type="password" id="currentPass" placeholder="Current password"/>
+                <button type="button" class="toggle-pass" data-target="currentPass">👁</button>
+              </div>
+              <span class="form-error" id="currentPassErr">Required</span>
+            </div>
+            <div class="form-group">
+              <label class="form-label">NEW PASSWORD</label>
+              <div class="input-icon-wrap">
+                <span class="input-icon">🔒</span>
+                <input type="password" id="newPass" placeholder="Min 8 characters"/>
+                <button type="button" class="toggle-pass" data-target="newPass">👁</button>
+              </div>
+              <div class="password-strength">
+                <div class="strength-bar"><div class="strength-fill" id="newPassStrength"></div></div>
+                <span class="strength-label" id="newPassLabel">STRENGTH</span>
+              </div>
+              <span class="form-error" id="newPassErr">Min 8 characters</span>
+            </div>
+            <div class="form-group">
+              <label class="form-label">CONFIRM NEW PASSWORD</label>
+              <div class="input-icon-wrap">
+                <span class="input-icon">🔒</span>
+                <input type="password" id="confirmNewPass" placeholder="Repeat new password"/>
+                <button type="button" class="toggle-pass" data-target="confirmNewPass">👁</button>
+              </div>
+              <span class="form-error" id="confirmNewPassErr">Passwords do not match</span>
+            </div>
+            <button type="submit" class="btn-neon">UPDATE PASSWORD</button>
+          </form>
+        </div>
+
+        <!-- TAB: MESSAGES PREVIEW -->
+        <div class="profile-tab" id="tab-messages">
+          <div class="tab-header">
+            <div class="tab-title-wrap">
+              <div class="section-tag">// INBOX</div>
+              <h2 class="tab-title">MESSAGES</h2>
+            </div>
+            <a href="messages.html" class="btn-ghost">OPEN FULL INBOX →</a>
+          </div>
+          <div class="messages-preview glass-card" id="messagesPreview">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-bottom" style="max-width:100%;">
+      <span>© 2026 FOUR WHEELS — BZU Multan Final Year Project</span>
+      <span class="footer-tag">[ SYSTEM ONLINE ]</span>
+    </div>
+  </footer>
+
+  <script src="../js/global.js"></script>
+  <script src="../js/navbar.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/profile.js"></script>
+</body>
+</html>

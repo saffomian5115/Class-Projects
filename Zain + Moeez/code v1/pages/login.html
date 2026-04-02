@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login — Four Wheels</title>
+  <link rel="stylesheet" href="../css/global.css"/>
+  <link rel="stylesheet" href="../css/navbar.css"/>
+  <link rel="stylesheet" href="../css/footer.css"/>
+  <link rel="stylesheet" href="../css/components.css"/>
+  <link rel="stylesheet" href="../css/auth.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <div class="bg-grid"></div>
+  <div class="bg-scanlines"></div>
+  <div class="bg-glow-orb orb1"></div>
+  <div class="bg-glow-orb orb2"></div>
+  <div class="bg-glow-orb orb3"></div>
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-logo">
+        <span class="logo-icon">⬡</span>
+        <span class="logo-text">FOUR<span class="logo-accent">WHEELS</span></span>
+        <span class="logo-tag">v2.0</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../index.html" class="nav-link">HOME</a></li>
+        <li><a href="vehicles.html" class="nav-link">VEHICLES</a></li>
+        <li><a href="sell.html" class="nav-link">SELL</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="register.html" class="btn-neon">GET STARTED</a>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- LOGIN PAGE -->
+  <main class="auth-main auth-main-centered">
+    <div class="auth-layout auth-layout-single">
+
+      <!-- DECORATIVE LEFT -->
+      <div class="auth-panel-left auth-panel-login">
+        <div class="login-gfx">
+          <div class="login-hex-grid">
+            <div class="hex h1"></div><div class="hex h2"></div>
+            <div class="hex h3"></div><div class="hex h4"></div>
+            <div class="hex h5"></div><div class="hex h6"></div>
+          </div>
+          <div class="login-stat-card glass-card">
+            <div class="lsc-number">12,400+</div>
+            <div class="lsc-label">VEHICLES LISTED</div>
+          </div>
+          <div class="login-stat-card glass-card" style="margin-top:12px;">
+            <div class="lsc-number">8,200+</div>
+            <div class="lsc-label">ACTIVE USERS</div>
+          </div>
+          <div class="login-tagline">
+            <span class="badge-dot"></span>
+            SYSTEM ONLINE — PAKISTAN'S #1 PLATFORM
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT — LOGIN FORM -->
+      <div class="auth-panel-right">
+        <div class="auth-card glass-card">
+          <div class="auth-card-header">
+            <div class="auth-step-tag">// RETURNING USER</div>
+            <h1 class="auth-title">WELCOME BACK</h1>
+            <p class="auth-subtitle">New here? <a href="register.html" class="auth-link">Create an account →</a></p>
+          </div>
+
+          <form class="auth-form" id="loginForm" novalidate>
+
+            <!-- Email -->
+            <div class="form-group">
+              <label class="form-label">EMAIL ADDRESS</label>
+              <div class="input-icon-wrap">
+                <span class="input-icon">@</span>
+                <input type="email" id="loginEmail" placeholder="you@example.com" autocomplete="email"/>
+              </div>
+              <span class="form-error" id="loginEmailErr">Enter a valid email</span>
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+              <label class="form-label">PASSWORD</label>
+              <div class="input-icon-wrap">
+                <span class="input-icon">🔒</span>
+                <input type="password" id="loginPassword" placeholder="Your password" autocomplete="current-password"/>
+                <button type="button" class="toggle-pass" data-target="loginPassword">👁</button>
+              </div>
+              <span class="form-error" id="loginPassErr">Password is required</span>
+            </div>
+
+            <!-- Remember + Forgot -->
+            <div class="form-row form-row-space">
+              <div class="form-check">
+                <input type="checkbox" id="remember"/>
+                <label for="remember">Remember me</label>
+              </div>
+              <a href="#" class="auth-link forgot-link">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="btn-neon auth-submit" id="loginBtn">
+              <span id="loginBtnText">SIGN IN</span>
+              <span class="btn-loader hidden" id="loginLoader">⟳</span>
+            </button>
+
+          </form>
+
+          <div class="auth-divider"><span>OR CONTINUE WITH</span></div>
+          <div class="auth-socials">
+            <button class="social-auth-btn">G &nbsp; Google</button>
+            <button class="social-auth-btn">f &nbsp; Facebook</button>
+          </div>
+
+          <!-- Admin shortcut -->
+          <div class="admin-shortcut">
+            <a href="admin/login.html" class="admin-link">🛡 Admin Panel Access →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="../js/global.js"></script>
+  <script src="../js/navbar.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/login.js"></script>
+</body>
+</html>

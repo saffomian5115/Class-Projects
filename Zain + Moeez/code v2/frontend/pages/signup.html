@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Four Wheels</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="animated-grid"></div>
+    
+    <nav class="navbar glass">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-car"></i>
+                <span>Four Wheels</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="vehicles.html">Vehicles</a>
+                <a href="login.html">Login</a>
+                <a href="signup.html" class="active">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="form-container glass">
+            <div class="form-title">
+                <i class="fas fa-user-plus" style="color: var(--primary-cyan); font-size: 2rem; margin-bottom: 10px; display: inline-block;"></i>
+                <h2>Create Account</h2>
+                <p style="opacity: 0.7; font-size: 0.9rem;">Join the future of vehicle trading</p>
+            </div>
+            
+            <div id="alertContainer"></div>
+            
+            <form id="signupForm">
+                <div class="form-group">
+                    <label><i class="fas fa-user"></i> Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label><i class="fas fa-envelope"></i> Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label><i class="fas fa-phone"></i> Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="0300-1234567" required>
+                </div>
+                
+                <div class="form-group">
+                    <label><i class="fas fa-city"></i> City</label>
+                    <select id="city" name="city" required>
+                        <option value="">Select City</option>
+                        <option value="Karachi">Karachi</option>
+                        <option value="Lahore">Lahore</option>
+                        <option value="Islamabad">Islamabad</option>
+                        <option value="Rawalpindi">Rawalpindi</option>
+                        <option value="Multan">Multan</option>
+                        <option value="Faisalabad">Faisalabad</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label><i class="fas fa-tag"></i> Account Type</label>
+                    <select id="role" name="role">
+                        <option value="buyer">Buyer - I want to buy vehicles</option>
+                        <option value="seller">Seller - I want to sell vehicles</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" id="password" name="password" placeholder="Minimum 6 characters" required>
+                </div>
+                
+                <div class="form-group">
+                    <label><i class="fas fa-check-circle"></i> Confirm Password</label>
+                    <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+                </div>
+                
+                <button type="submit" class="neon-btn primary" style="width: 100%; margin-top: 20px;">
+                    <i class="fas fa-user-plus"></i> Sign Up
+                </button>
+            </form>
+            
+            <div style="text-align: center; margin-top: 20px;">
+                <p style="opacity: 0.7;">Already have an account? <a href="login.html" style="color: var(--primary-cyan);">Login</a></p>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/auth.js"></script>
+</body>
+</html>

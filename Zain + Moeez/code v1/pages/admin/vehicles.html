@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vehicles — Admin Panel</title>
+  <link rel="stylesheet" href="../../css/global.css"/>
+  <link rel="stylesheet" href="../../css/components.css"/>
+  <link rel="stylesheet" href="../../css/admin.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
+</head>
+<body class="admin-body">
+  <div class="bg-grid" style="opacity:0.4;"></div>
+  <div class="bg-scanlines"></div>
+
+  <!-- SIDEBAR -->
+  <aside class="admin-sidebar" id="adminSidebar">
+    <div class="admin-sidebar-logo">
+      <span style="color:var(--neon-purple);font-size:1.3rem;">⬡</span>
+      <div>
+        <div class="logo-text" style="font-size:0.9rem;">FOUR<span class="logo-accent">WHEELS</span></div>
+        <div class="admin-panel-tag">ADMIN PANEL</div>
+      </div>
+    </div>
+    <nav class="admin-nav">
+      <div class="admin-nav-section">MAIN</div>
+      <a href="dashboard.html" class="admin-nav-link" data-page="dashboard"><span class="anl-icon">⊞</span> DASHBOARD</a>
+      <a href="users.html" class="admin-nav-link" data-page="users"><span class="anl-icon">👥</span> USERS</a>
+      <a href="vehicles.html" class="admin-nav-link active" data-page="vehicles"><span class="anl-icon">🚗</span> VEHICLES</a>
+      <div class="admin-nav-section">SYSTEM</div>
+      <a href="#" class="admin-nav-link"><span class="anl-icon">⚙</span> SETTINGS</a>
+      <a href="#" class="admin-nav-link" id="adminLogoutLink"><span class="anl-icon">⏻</span> LOGOUT</a>
+    </nav>
+    <div class="admin-sidebar-footer">
+      <div class="asf-avatar">SA</div>
+      <div>
+        <div style="font-family:var(--font-display);font-size:0.72rem;font-weight:700;">SUPER ADMIN</div>
+        <div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--text-muted);">admin@fourwheels.pk</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="admin-main">
+    <header class="admin-topbar">
+      <div class="topbar-left">
+        <button class="sidebar-toggle-btn" id="sidebarToggle">☰</button>
+        <div class="topbar-breadcrumb">
+          <span style="color:var(--text-muted);">Admin</span>
+          <span style="color:var(--text-muted);margin:0 6px;">›</span>
+          <span style="color:var(--neon-cyan);">Vehicles</span>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <div class="topbar-date" id="topbarDate"></div>
+        <a href="../login.html" class="btn-ghost" style="padding:6px 14px;font-size:0.7rem;">EXIT PANEL</a>
+      </div>
+    </header>
+
+    <div class="admin-content">
+      <div class="admin-page-header">
+        <div>
+          <div class="section-tag">// VEHICLE MANAGEMENT</div>
+          <h1 class="admin-page-title">ALL VEHICLES</h1>
+        </div>
+        <div class="admin-page-actions">
+          <div class="admin-search-wrap">
+            <input type="text" id="vehicleSearch" placeholder="Search vehicles..." class="admin-search-input"/>
+          </div>
+          <select class="sort-select" id="vehicleStatusFilter" style="width:auto;">
+            <option value="">All Status</option>
+            <option value="active">Active</option>
+            <option value="pending">Pending</option>
+            <option value="rejected">Rejected</option>
+          </select>
+          <select class="sort-select" id="vehicleTypeFilter" style="width:auto;">
+            <option value="">All Types</option>
+            <option value="Car">Car</option>
+            <option value="SUV">SUV</option>
+            <option value="Bike">Bike</option>
+            <option value="Truck">Truck</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- MINI STATS -->
+      <div class="mini-stats-row" id="vehicleMiniStats"></div>
+
+      <!-- TABLE -->
+      <div class="admin-table-card glass-card">
+        <table class="data-table" id="vehiclesAdminTable">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>VEHICLE</th>
+              <th>SELLER</th>
+              <th>PRICE</th>
+              <th>CITY</th>
+              <th>TYPE</th>
+              <th>POSTED</th>
+              <th>STATUS</th>
+              <th>ACTIONS</th>
+            </tr>
+          </thead>
+          <tbody id="vehiclesAdminTbody"></tbody>
+        </table>
+        <div class="table-footer">
+          <span class="table-count" id="vehiclesTableCount"></span>
+          <div class="pagination" id="vehiclesPagination"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EDIT VEHICLE MODAL -->
+  <div class="modal-overlay" id="editVehicleModal">
+    <div class="modal" style="max-width:560px;">
+      <div class="modal-header">
+        <span class="modal-title">EDIT VEHICLE LISTING</span>
+        <button class="modal-close" onclick="closeModal('editVehicleModal')">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">TITLE</label>
+            <input type="text" id="editVTitle"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">PRICE (PKR)</label>
+            <input type="number" id="editVPrice"/>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">CITY</label>
+            <input type="text" id="editVCity"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">STATUS</label>
+            <select id="editVStatus">
+              <option value="active">Active</option>
+              <option value="pending">Pending</option>
+              <option value="rejected">Rejected</option>
+            </select>
+          </div>
+        </div>
+        <input type="hidden" id="editVId"/>
+        <button class="btn-neon" style="width:100%;justify-content:center;margin-top:8px;"
+          onclick="saveVehicleEdit()">SAVE CHANGES</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- APPROVE/REJECT MODAL -->
+  <div class="modal-overlay" id="reviewModal">
+    <div class="modal" style="max-width:500px;">
+      <div class="modal-header">
+        <span class="modal-title">REVIEW LISTING</span>
+        <button class="modal-close" onclick="closeModal('reviewModal')">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="review-listing-card" id="reviewListingCard"></div>
+        <div style="display:flex;gap:12px;margin-top:20px;justify-content:center;">
+          <button class="btn-neon" style="background:linear-gradient(135deg,#00c853,var(--neon-green));" onclick="approveVehicle()">
+            ✓ APPROVE
+          </button>
+          <button class="btn-neon" style="background:linear-gradient(135deg,var(--neon-pink),#ff4444);" onclick="rejectVehicle()">
+            ✕ REJECT
+          </button>
+          <button class="btn-ghost" onclick="closeModal('reviewModal')">CANCEL</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DELETE VEHICLE MODAL -->
+  <div class="modal-overlay" id="deleteVehicleModal">
+    <div class="modal" style="max-width:420px;">
+      <div class="modal-header">
+        <span class="modal-title" style="color:var(--neon-pink);">⚠ DELETE LISTING</span>
+        <button class="modal-close" onclick="closeModal('deleteVehicleModal')">✕</button>
+      </div>
+      <div class="modal-body" style="text-align:center;padding:32px;">
+        <div style="font-size:3rem;margin-bottom:16px;">🗑️</div>
+        <p style="color:var(--text-secondary);margin-bottom:8px;">Delete this vehicle listing?</p>
+        <p style="font-family:var(--font-display);font-size:0.85rem;color:var(--text-primary);margin-bottom:24px;" id="deleteVehicleLabel"></p>
+        <div style="display:flex;gap:12px;justify-content:center;">
+          <button class="btn-ghost" onclick="closeModal('deleteVehicleModal')">CANCEL</button>
+          <button class="btn-neon" style="background:linear-gradient(135deg,var(--neon-pink),#ff4444);" onclick="confirmDeleteVehicle()">DELETE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../js/global.js"></script>
+  <script src="../../js/admin-data.js"></script>
+  <script src="../../js/admin-vehicles.js"></script>
+</body>
+</html>
